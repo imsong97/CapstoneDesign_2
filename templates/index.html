@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Video Streaming</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <style>
+      div{
+        float: left;
+      }
+      .camera{
+        display: inline-block;
+        height: 80%;
+        /* width: 1024px;
+        height: 576px; */
+        border: 2px solid blue;
+      }
+      .percent{
+        display: inline-block;
+        width: 600px;
+        height: 600px;
+        border: 2px solid red;
+      }
+      @media screen and (max-width: 600px) {
+        .camera{
+          display:block; 
+        }
+        .percent{
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Video</h1>
+      <div class="webcam">
+        <img src="{{ url_for('calc') }}" class="camera">
+      </div>
+
+      <div class="percent">
+        {% for i in data %}
+          <br>{{i}}<br>
+        {% endfor %}
+      </div>
+  </body>
+</html>
